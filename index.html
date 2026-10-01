@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M. Sohaib Umar Ranjha — Mobile App Developer & Data Analyst</title>
+<meta name="description" content="Portfolio of M. Sohaib Umar Ranjha: mobile apps, full stack, data analytics, job simulations and certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090c1c;--ink:#f3f1fa;--mute:#a9a7c4;--v:#8b7bff;--p:#ffae8a;--glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.14);--d:'Bricolage Grotesque',Georgia,serif;--b:'Instrument Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--b);overflow-x:hidden}
+@media(hover:hover){body,a,button{cursor:none}}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--p);outline-offset:3px}
+#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}
+.veil{position:fixed;inset:0;z-index:-2;background:radial-gradient(120% 80% at 20% 0%,rgba(139,123,255,.28),transparent 60%),linear-gradient(180deg,rgba(9,12,28,.55),rgba(9,12,28,.86))}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--v),var(--p));z-index:99}
+.cur,.ring{position:fixed;top:0;left:0;pointer-events:none;z-index:200;border-radius:50%;display:none}
+@media(hover:hover){.cur,.ring{display:block}}
+.cur{width:8px;height:8px;background:var(--p);margin:-4px 0 0 -4px}
+.ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid var(--v);transition:width .25s,height .25s,margin .25s,background .25s}
+.ring.big{width:74px;height:74px;margin:-37px 0 0 -37px;background:rgba(139,123,255,.18)}
+/* loader */
+#load{position:fixed;inset:0;z-index:300;background:var(--bg);display:grid;place-items:center;transition:transform 1s cubic-bezier(.77,0,.18,1)}
+#load.out{transform:translateY(-100%)}
+#load h1{font:800 clamp(34px,8vw,96px)/1 var(--d);letter-spacing:-.03em;display:flex;flex-wrap:wrap;justify-content:center;gap:0 .3em;padding:0 20px;text-align:center}
+#load span{display:inline-block;transform:translateY(110%);opacity:0;animation:up .8s cubic-bezier(.2,.9,.2,1) forwards}
+@keyframes up{to{transform:none;opacity:1}}
+/* nav */
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:90;display:flex;gap:4px;padding:6px;border:1px solid var(--line);border-radius:99px;background:rgba(12,14,34,.55);backdrop-filter:blur(18px) saturate(1.4);max-width:calc(100% - 24px)}
+nav a{padding:9px 18px;border-radius:99px;font-size:15px;font-weight:500;color:var(--mute);transition:.3s;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+nav a.on{background:var(--ink);color:#15142b}
+@media(max-width:760px){nav{overflow-x:auto;scrollbar-width:none}nav a{padding:8px 13px;font-size:14px}}
+section{padding:130px 6vw;position:relative}
+.wrap{max-width:1240px;margin:auto}
+h2{font:800 clamp(40px,7vw,96px)/.95 var(--d);letter-spacing:-.035em;margin-bottom:18px}
+h2 .l{display:block;overflow:hidden}
+h2 .l i{display:block;font-style:normal;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.9,.2,1)}
+.in h2 .l i{transform:none}
+.sub{color:var(--mute);max-width:56ch;margin-bottom:56px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s cubic-bezier(.2,.9,.2,1)}
+.in .rv,.rv.in{opacity:1;transform:none}
+/* hero */
+#home{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:110px}
+.hero-name{font:800 clamp(56px,13.5vw,220px)/.86 var(--d);letter-spacing:-.05em;will-change:transform}
+.hero-name .o{display:block;-webkit-text-stroke:2px var(--ink);color:transparent;transition:color .5s}
+.hero-name:hover .o{color:var(--v);-webkit-text-stroke-color:var(--v)}
+.role{margin-top:30px;font:500 clamp(18px,2.4vw,30px)/1.3 var(--d);color:var(--mute);display:flex;flex-wrap:wrap;gap:0 .5em}
+#role{color:var(--p);border-right:2px solid var(--p);padding-right:4px;animation:bl .8s steps(1) infinite}
+@keyframes bl{50%{border-color:transparent}}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
+.btn{position:relative;padding:15px 30px;border-radius:99px;font-weight:600;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);transition:transform .3s,background .3s,color .3s;display:inline-block}
+.btn.pri{background:linear-gradient(120deg,var(--v),#c39bff 55%,var(--p));color:#15142b;border:0}
+.btn:hover{transform:translateY(-4px) scale(1.03)}
+.scroll{position:absolute;right:6vw;bottom:36px;writing-mode:vertical-rl;font-size:13px;color:var(--mute);display:flex;align-items:center;gap:12px}
+.scroll::after{content:"";width:1px;height:70px;background:linear-gradient(var(--p),transparent);animation:dr 2s infinite}
+@keyframes dr{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid var(--line);background:rgba(9,12,28,.5);backdrop-filter:blur(8px);padding:20px 0;transform:rotate(-1.5deg) skewX(var(--sk,0deg));margin:0 -2vw}
+.mq div{display:flex;gap:48px;width:max-content;animation:mq 38s linear infinite;font:800 clamp(24px,4vw,44px) var(--d);letter-spacing:-.02em}
+.mq span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--mute)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* about */
+.grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:start}
+@media(max-width:900px){.grid2{grid-template-columns:1fr;gap:50px}}
+.glass{border:1px solid var(--line);border-radius:26px;background:var(--glass);backdrop-filter:blur(16px);padding:30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:20px;border-radius:20px;border:1px solid var(--line);background:var(--glass);transition:.4s}
+.stat:hover{transform:translateY(-6px);border-color:var(--v)}
+.stat b{display:block;font:800 44px/1 var(--d);color:var(--p)}
+.stat small{color:var(--mute);font-size:14px}
+.tl{border-left:1px solid var(--line);margin-left:6px}
+.tl div{padding:0 0 26px 26px;position:relative}
+.tl div::before{content:"";position:absolute;left:-6px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--v);box-shadow:0 0 0 5px rgba(139,123,255,.2)}
+.tl h4{font:500 21px/1.3 var(--d)}.tl p{color:var(--mute);font-size:15px}
+/* internship sticker */
+.sticker{position:absolute;right:3vw;top:-30px;width:min(330px,60vw);transform:rotate(7deg);z-index:5;touch-action:none;cursor:grab;transition:box-shadow .3s}
+.sticker:active{cursor:grabbing}
+.sticker .paper{background:#f7f3ea;padding:10px 10px 14px;border-radius:6px;box-shadow:0 30px 60px rgba(0,0,0,.5);animation:fl 6s ease-in-out infinite}
+.sticker img{border-radius:3px}
+.sticker p{color:#2b2a3d;font:500 14px/1.3 var(--d);margin-top:9px;text-align:center}
+.sticker::before{content:"";position:absolute;left:50%;top:-14px;width:96px;height:28px;margin-left:-48px;background:rgba(255,174,138,.75);transform:rotate(-4deg);z-index:2}
+@keyframes fl{50%{transform:translateY(-10px) rotate(-1.5deg)}}
+@media(max-width:900px){.sticker{position:relative;right:auto;top:auto;margin:0 auto 40px}}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px;perspective:1200px}
+.card{position:relative;border-radius:24px;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(14px);overflow:hidden;transform-style:preserve-3d;transform:rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .25s ease-out,border-color .4s;text-align:left;color:inherit;font:inherit;padding:0;display:block;width:100%}
+.card:hover{border-color:var(--v)}
+.card .im{overflow:hidden;background:#fff;aspect-ratio:1170/827}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.9,.2,1)}
+.card:hover img{transform:scale(1.08)}
+.card .tx{padding:22px 24px 26px}
+.tag{display:inline-block;font-size:13px;font-weight:600;color:var(--p);margin-bottom:6px}
+.card h3{font:500 22px/1.25 var(--d);margin-bottom:8px}
+.card p{color:var(--mute);font-size:15px;line-height:1.55}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(360px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.14),transparent 45%);opacity:0;transition:.3s}
+.card:hover::after{opacity:1}
+/* projects */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.chips span{padding:10px 18px;border:1px solid var(--line);border-radius:99px;background:var(--glass);font-size:15px;transition:.3s}
+.chips span:hover{background:var(--v);color:#15142b;transform:translateY(-3px) rotate(-2deg)}
+/* contact */
+form{display:grid;gap:14px}
+input,textarea{width:100%;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font:inherit;transition:.3s}
+input:focus,textarea:focus{outline:0;border-color:var(--v);background:rgba(139,123,255,.1)}
+textarea{min-height:150px;resize:vertical}
+.links{display:grid;gap:14px}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:22px 26px;border:1px solid var(--line);border-radius:20px;background:var(--glass);font:500 22px var(--d);transition:.4s}
+.links a:hover{background:var(--ink);color:#15142b;transform:translateX(10px)}
+.links small{font:400 14px var(--b);opacity:.7}
+#msg{min-height:24px;color:var(--p);font-size:15px}
+footer{padding:40px 6vw 60px;text-align:center;color:var(--mute);font-size:14px}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:150;background:rgba(6,8,20,.9);backdrop-filter:blur(10px);display:none;place-items:center;padding:24px}
+#lb.on{display:grid;animation:fi .35s}
+@keyframes fi{from{opacity:0}}
+#lb img{max-height:82vh;border-radius:10px;box-shadow:0 40px 100px rgba(0,0,0,.6);animation:zi .5s cubic-bezier(.2,.9,.2,1)}
+@keyframes zi{from{transform:scale(.85)}}
+#lb p{text-align:center;margin-top:16px;color:var(--mute)}
+
+#fx{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.aur{position:fixed;z-index:-1;width:46vw;height:46vw;border-radius:50%;filter:blur(90px);opacity:.32;pointer-events:none;animation:dr2 22s ease-in-out infinite alternate}
+.aur.a{background:#6d5cff;left:-10vw;top:10vh}.aur.b{background:#ff9a76;right:-12vw;bottom:-10vh;animation-delay:-8s}
+@keyframes dr2{to{transform:translate(12vw,10vh) scale(1.25)}}
+#wipe{position:fixed;inset:0;z-index:250;display:flex;pointer-events:none}
+#wipe i{flex:1;background:linear-gradient(180deg,var(--v),#c39bff 60%,var(--p));transform:scaleY(0);transform-origin:bottom;transition:transform .55s cubic-bezier(.77,0,.18,1)}
+#wipe.go i{transform:scaleY(1)}
+#wipe.out i{transform-origin:top;transform:scaleY(0)}
+.ch{display:inline-block;transform:translateY(60%) rotate(8deg);opacity:0;transition:transform .35s cubic-bezier(.3,1.6,.5,1),color .3s}
+.in .ch{animation:up .9s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:calc(var(--i)*.045s)}
+.ch:hover{transform:translateY(-16px) rotate(-7deg)!important;color:var(--p)}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.up{padding:clamp(28px,5vw,64px);background:var(--glass)}
+.up::before{content:"";position:absolute;inset:0;border-radius:24px;padding:2px;background:conic-gradient(from var(--ang),transparent 0 55%,var(--p),var(--v),transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;pointer-events:none}
+@keyframes spin{to{--ang:360deg}}
+.stat{display:block}
+.stat small::after{content:" ↗"}
+.chips a{padding:10px 18px;border:1px solid var(--line);border-radius:99px;background:var(--glass);font-size:15px;transition:.3s}
+.chips a:hover{background:var(--v);color:#15142b;transform:translateY(-3px) rotate(-2deg)}
+.btn{overflow:hidden}
+.tl .now::before{background:var(--p);animation:nowp 1.8s infinite}@keyframes nowp{0%{box-shadow:0 0 0 0 rgba(255,174,138,.7)}100%{box-shadow:0 0 0 16px transparent}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,h2 .l i,#load span,.ch{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="bar"></div><div class="cur"></div><div class="ring"></div>
+<div id="load"><h1 id="lt" aria-label="Sohaib Umar Ranjha"></h1></div>
+<video id="bg" autoplay muted loop playsinline poster="assets/poster.jpg"><source src="assets/bg.mp4" type="video/mp4"></video>
+<div class="veil"></div><div class="aur a"></div><div class="aur b"></div><canvas id="fx"></canvas><div id="wipe"></div>
+
+<nav id="nav">
+  <a href="#home" class="on">Home</a><a href="#about">About</a><a href="#uplivion">Uplivion</a><a href="#simulations">Job Simulations</a><a href="#certs">Certifications &amp; Badges</a><a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+  <div class="wrap">
+    <h1 class="hero-name" id="hn"><span>Sohaib</span><span class="o">Umar Ranjha</span></h1>
+    <p class="role">I build <span id="role"></span></p>
+    <div class="cta"><a class="btn pri" href="#simulations">See my work</a><a class="btn" href="#contact">Say hello</a><a class="btn" href="https://upliviondigital.vercel.app/" target="_blank" rel="noopener">UplivionDigital</a><a class="btn" href="https://github.com/sohaibumarranjha1" target="_blank" rel="noopener">GitHub</a><a class="btn" href="https://www.linkedin.com/in/sohaib-umar-ranjha-87404633a" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+  <div class="scroll">scroll</div>
+</section>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="about">
+  <div class="sticker" id="stk" data-src="assets/certs/elevvo-internship.jpg" data-cap="Front-End Web Development Internship · Elevvo · Sept 2025">
+    <div class="paper"><img src="assets/certs/elevvo-internship.jpg" alt="Elevvo front-end internship certificate" draggable="false"><p>Found me. Drag me around, or tap to open. My Elevvo internship certificate.</p></div>
+  </div>
+  <div class="wrap">
+    <h2><span class="l"><i>Code, data</i></span><span class="l"><i>and curiosity.</i></span></h2>
+    <div class="grid2">
+      <div class="rv">
+        <p style="max-width:60ch">I'm an Information Engineering Technology student and emerging software engineer working across full stack, mobile development and AI-driven data analytics. I've delivered 10+ end-to-end projects, from mobile apps and REST APIs to data analysis pipelines, I founded UplivionDigital, and I've worked through global job simulations with Goldman Sachs, Electronic Arts, HPE, Red Bull, BCG X, Mastercard and the City of Moreton Bay.</p>
+        <div class="stats">
+          <a class="stat" href="https://github.com/sohaibumarranjha1?tab=repositories" target="_blank" rel="noopener" aria-label="10+ projects, open my GitHub repositories"><b data-n="10" data-s="+">0</b><small>projects on GitHub</small></a>
+          <div class="stat"><b data-n="7">0</b><small>job simulations</small></div>
+          <div class="stat"><b data-n="8">0</b><small>certificates &amp; badges</small></div>
+          <div class="stat"><b data-n="4">0</b><small>internships &amp; roles</small></div>
+        </div>
+        <h3 style="font:500 24px var(--d);margin-bottom:12px">Projects</h3>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="glass rv">
+        <h3 style="font:500 24px var(--d);margin-bottom:22px">Experience &amp; education</h3>
+        <div class="tl">
+          <div class="now"><h4>Android Developer Intern · Cloud Gate Technologies (NAM Group)</h4><p>Present. Currently building Android applications as an intern.</p></div>
+          <div><h4>Web Developer Intern · Elevvo Tech</h4><p>2025, remote from Egypt. Responsive UI in HTML, CSS and JavaScript, Git workflows and code reviews with an international team.</p></div>
+          <div><h4>Data Analyst Intern · Soul Care Clinic</h4><p>2024. Excel and Python analysis of clinical data, structured trend reports, strict confidentiality.</p></div>
+          <div><h4>Networking &amp; Maintenance Technician · Anork BPO</h4><p>2022. Routers, networking devices and hardware support for call-center operations.</p></div>
+          <div><h4>B.S. Information Engineering Technology</h4><p>Foundation University Islamabad, 2023 to present. 7th semester.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="uplivion">
+  <div class="wrap">
+    <h2><span class="l"><i>Founder of</i></span><span class="l"><i>UplivionDigital.</i></span></h2>
+    <div class="card up rv">
+      <p style="font:500 clamp(20px,2.6vw,30px)/1.35 var(--d);max-width:30em;margin-bottom:18px">A digital studio that puts web, apps, branding, content and SEO under one roof.</p>
+      <p class="sub" style="margin-bottom:26px">I started UplivionDigital to help businesses and individuals grow online. From mobile apps and full-stack websites to logos, CV design, copywriting and email management, we take a project from idea to launch.</p>
+      <div class="chips" id="svc"></div>
+      <div class="cta"><a class="btn pri" href="https://upliviondigital.vercel.app/" target="_blank" rel="noopener">Visit UplivionDigital</a><a class="btn" href="#contact">Work with me</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="simulations">
+  <div class="wrap">
+    <h2><span class="l"><i>Job</i></span><span class="l"><i>simulations</i></span></h2>
+    <p class="sub rv">Real tasks from real companies, completed through Forage. Tap any certificate to view it full size.</p>
+    <div class="cards" id="sims"></div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap">
+    <h2><span class="l"><i>Certifications</i></span><span class="l"><i>&amp; badges</i></span></h2>
+    <p class="sub rv">Courses and skill badges in AI, cybersecurity, project management and professional communication.</p>
+    <div class="cards" id="certg"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2><span class="l"><i>Let's build</i></span><span class="l"><i>something.</i></span></h2>
+    <p class="sub rv">Send a message and it lands straight in my inbox.</p>
+    <div class="grid2">
+      <form id="f" class="glass rv">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input name="name" placeholder="Your name" required aria-label="Your name">
+        <input name="email" type="email" placeholder="Your email" required aria-label="Your email">
+        <textarea name="message" placeholder="What would you like to build?" required aria-label="Message"></textarea>
+        <button class="btn pri" type="submit">Send message</button>
+        <div id="msg" role="status"></div>
+      </form>
+      <div class="links rv">
+        <a href="mailto:sohaibumarranjha@gmail.com">Email <small>sohaibumarranjha@gmail.com</small></a>
+        <a href="https://www.linkedin.com/in/sohaib-umar-ranjha-87404633a" target="_blank" rel="noopener">LinkedIn <small>Sohaib Umar Ranjha</small></a>
+        <a href="https://upliviondigital.vercel.app/" target="_blank" rel="noopener">UplivionDigital <small>founder</small></a>
+        <a href="https://github.com/sohaibumarranjha1" target="_blank" rel="noopener">GitHub <small>sohaibumarranjha1</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>Designed and built by M. Sohaib Umar Ranjha</footer>
+
+<div id="lb" role="dialog" aria-modal="true"><div><img id="lbi" alt=""><p id="lbp"></p></div></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const EMAIL='sohaibumarranjha@gmail.com';
+const sims=[
+ ['goldman-sachs','Goldman Sachs','Software Engineering','Feb 2025','Cracked a leaked password database, a hands-on look at password hashing and security weaknesses.'],
+ ['electronic-arts','Electronic Arts','Software Engineering','Feb 2025','Wrote a feature proposal, built a game object class, improved an inventory system and fixed a live bug.'],
+ ['hpe','Hewlett Packard Enterprise','Software Engineering','Feb 2025','Proposed and built a RESTful web service with data upload and unit tests.'],
+ ['bcg-x','BCG X','Strategic & Experience Design','Feb 2025','Designed a research protocol, created consumer personas and designed new consumer experiences.'],
+ ['red-bull','Red Bull','On-Premise Sales','Feb 2025','Analysed account data and practised overcoming sales objections.'],
+ ['moreton-bay','City of Moreton Bay','Entrepreneurship & Innovation: Web Development','Mar 2025','Planned a website and created a form for a real council brief.'],
+ ['mastercard','Mastercard','Cybersecurity','Dec 2025','Designed a phishing email simulation and interpreted its results.']
+];
+const certs=[
+ ['google-vertex-badge','Google Cloud','Prompt Design in Vertex AI','Skill badge','Introductory skill badge on writing effective prompts for generative AI models in Vertex AI.'],
+ ['opswat-cip','OPSWAT Academy','Introduction to Critical Infrastructure Protection','Sep 2026','Standards and requirements for protecting critical infrastructure, moving from IT to OT security.'],
+ ['pmi-genai-overview','Project Management Institute','Generative AI Overview for Project Managers','Feb 2025','How generative AI works and where it helps in managing projects.'],
+ ['pmi-genai-practical','Project Management Institute','Practical Application of Generative AI for Project Managers','Sep 2026','Applying generative AI to real project management work.'],
+ ['hp-ai-beginners','HP LIFE','AI for Beginners','Aug 2026','Core AI concepts, why data matters, business use and the ethics of AI.'],
+ ['hp-cyber-awareness','HP LIFE','Introduction to Cybersecurity Awareness','Aug 2026','Common cybersecurity threats and simple ways to keep online data secure.'],
+ ['hp-strategic-planning','HP LIFE','Strategic Planning in the AI Age','Aug 2026','Building a strategic plan, evaluating frameworks and using AI tools to support decisions.'],
+ ['hp-business-email','HP LIFE','Business Email','Feb 2025','Structuring and writing effective business emails for professional situations.']
+];
+const skills=['React Native','Flutter','Node.js','MongoDB','Python','JavaScript','Firebase','SQL','REST APIs','Data Analysis','.NET','Figma','Prompt Engineering'];
+const projects=['Wrentchtup (final year app)','FitSync','Recovery Ride Rentals (Australia)','Voting Portal','Car Parking System','Hotel Management','Cyber Cafe System','Factory Access Controller','Gaming Network Simulation','YouTube Downloader'];
+const card=([f,co,t,d,desc])=>`<button class="card rv" data-src="assets/certs/${f}.jpg" data-cap="${co}: ${t}"><div class="im"><img loading="lazy" src="assets/certs/${f}.jpg" alt="${co} certificate: ${t}"></div><div class="tx"><span class="tag">${co} · ${d}</span><h3>${t}</h3><p>${desc}</p></div></button>`;
+$('#sims').innerHTML=sims.map(card).join('');
+$('#certg').innerHTML=certs.map(card).join('');
+$('#mq').innerHTML=[...skills,...skills].map(s=>`<span>${s}</span>`).join('');
+$('#chips').innerHTML=projects.map(p=>`<a href="https://github.com/sohaibumarranjha1?tab=repositories" target="_blank" rel="noopener">${p}</a>`).join('');
+$('#svc').innerHTML=['Web Development','App Development','UI/UX','Content Writing','Copywriting','Email Management','Ad Design','Logo Design','CV Design','Graphic Design','Brochure Design','SEO'].map(x=>`<span>${x}</span>`).join('');
+/* loader: one orchestrated moment */
+$('#lt').innerHTML='Sohaib Umar Ranjha'.split(' ').map((w,i)=>`<span style="animation-delay:${.15*i}s">${w}</span>`).join('');
+setTimeout(()=>{$('#load').classList.add('out');$('#home').classList.add('in')},1500);
+setTimeout(()=>$('#load').remove(),2700);
+/* reveal + active nav */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');$$('.stat b',e.target).forEach(count);io.unobserve(e.target)}}),{threshold:.12});
+$$('section,.rv').forEach(el=>io.observe(el));
+const links=$$('#nav a');
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+$$('section').forEach(s=>so.observe(s));
+function count(b){const n=+b.dataset.n,s=b.dataset.s||'';let i=0;const t=setInterval(()=>{b.textContent=++i+s;if(i>=n)clearInterval(t)},1000/n/1.2)}
+/* progress */
+addEventListener('scroll',()=>{$('#bar').style.width=scrollY/(document.body.scrollHeight-innerHeight)*100+'%'},{passive:true});
+/* typing roles */
+const roles=['mobile apps.','data stories.','full stack products.','things that move.'];let ri=0,ci=0,del=0;
+(function ty(){const r=roles[ri],el=$('#role');el.textContent=r.slice(0,ci);
+ if(!del&&ci++===r.length){del=1;return setTimeout(ty,1400)}
+ if(del&&--ci===0){del=0;ri=(ri+1)%roles.length}
+ setTimeout(ty,del?40:85)})();
+/* cursor */
+const cur=$('.cur'),ring=$('.ring');let mx=0,my=0,rx=0,ry=0;
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx}px,${my}px)`;
+ const h=$('#hn');if(scrollY<innerHeight)h.style.transform=`translate(${(e.clientX/innerWidth-.5)*-24}px,${(e.clientY/innerHeight-.5)*-16}px)`});
+(function lp(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(lp)})();
+document.addEventListener('mouseover',e=>ring.classList.toggle('big',!!e.target.closest('a,button,.sticker,.chips span,input,textarea,.stat')));
+/* 3D tilt + glow */
+document.addEventListener('mousemove',e=>{const c=e.target.closest('.card');$$('.card').forEach(x=>{if(x!==c){x.style.setProperty('--rx','0deg');x.style.setProperty('--ry','0deg')}});
+ if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+ c.style.setProperty('--ry',(x-.5)*14+'deg');c.style.setProperty('--rx',(.5-y)*14+'deg');c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
+/* lightbox */
+function open(src,cap){$('#lbi').src=src;$('#lbi').alt=cap;$('#lbp').textContent=cap;$('#lb').classList.add('on')}
+document.addEventListener('click',e=>{const c=e.target.closest('.card');if(c&&c.dataset.src)return open(c.dataset.src,c.dataset.cap);
+ if(e.target.closest('#lb')&&e.target.tagName!=='IMG')$('#lb').classList.remove('on')});
+addEventListener('keydown',e=>{if(e.key==='Escape')$('#lb').classList.remove('on')});
+/* draggable internship sticker */
+(()=>{const s=$('#stk');let d=0,ox=0,oy=0,x=0,y=0,moved=0;
+ s.addEventListener('pointerdown',e=>{d=1;moved=0;ox=e.clientX-x;oy=e.clientY-y;s.setPointerCapture(e.pointerId)});
+ s.addEventListener('pointermove',e=>{if(!d)return;x=e.clientX-ox;y=e.clientY-oy;moved=1;s.style.translate=`${x}px ${y}px`});
+ s.addEventListener('pointerup',()=>{d=0;if(!moved)open(s.dataset.src,s.dataset.cap)})})();
+/* contact form: delivers to your inbox via FormSubmit (first message needs a one-time activation click in your Gmail) */
+$('#f').addEventListener('submit',async e=>{e.preventDefault();const fm=e.target,f=new FormData(fm),m=$('#msg'),b=$('button',fm);
+ f.append('_subject','New portfolio message from '+f.get('name'));f.append('_template','table');f.append('_captcha','false');
+ b.disabled=true;m.textContent='Sending…';
+ try{const r=await fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:f,headers:{Accept:'application/json'}});const j=await r.json();
+  if(r.ok&&String(j.success)==='true'){m.textContent='Message sent. Thank you, I will reply soon.';fm.reset()}else throw 0}
+ catch{m.textContent='Could not send directly. Opening your email app instead.';location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Portfolio message from '+f.get('name'))}&body=${encodeURIComponent(f.get('message')+'\n\nFrom: '+f.get('name')+' ('+f.get('email')+')')}`}
+ b.disabled=false});
+/* hero letters */
+$$('#hn>span').forEach((sp,k)=>{const t=sp.textContent;sp.innerHTML=[...t].map((c,i)=>c===' '?' ':`<span class="ch" style="--i:${i+k*6}">${c}</span>`).join('')});
+/* constellation canvas + cursor trail + click burst */
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)(()=>{const c=$('#fx'),x=c.getContext('2d');let w,h,P=[],T=[],B=[],m={x:-999,y:-999};
+ const rs=()=>{w=c.width=innerWidth;h=c.height=innerHeight;P=Array.from({length:Math.min(90,w/16|0)},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}))};
+ rs();addEventListener('resize',rs);
+ addEventListener('mousemove',e=>{m.x=e.clientX;m.y=e.clientY;T.push({x:m.x,y:m.y,l:1})});
+ addEventListener('click',e=>{for(let i=0;i<18;i++){const a=i/18*6.28,v=2+Math.random()*3;B.push({x:e.clientX,y:e.clientY,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1})}});
+ const dot=(px,py,r,col)=>{x.fillStyle=col;x.beginPath();x.arc(px,py,r,0,6.28);x.fill()};
+ (function f(){x.clearRect(0,0,w,h);
+  for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+   const dx=p.x-m.x,dy=p.y-m.y,d=Math.hypot(dx,dy)||1;if(d<140){p.x+=dx/d*2;p.y+=dy/d*2}dot(p.x,p.y,1.6,'rgba(195,155,255,.7)')}
+  for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const d=Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y);if(d<120){x.strokeStyle=`rgba(139,123,255,${.22*(1-d/120)})`;x.beginPath();x.moveTo(P[i].x,P[i].y);x.lineTo(P[j].x,P[j].y);x.stroke()}}
+  T=T.filter(t=>(t.l-=.04)>0);T.forEach(t=>dot(t.x,t.y,t.l*5,`rgba(255,174,138,${t.l*.6})`));
+  B=B.filter(b=>(b.l-=.025)>0);B.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.vx*=.96;b.vy*=.96;dot(b.x,b.y,2.5*b.l+.5,`rgba(255,174,138,${b.l})`)});
+  requestAnimationFrame(f)})()})();
+/* shutter page transition on nav clicks */
+const wp=$('#wipe');wp.innerHTML=Array.from({length:7},(_,i)=>`<i style="transition-delay:${i*.045}s"></i>`).join('');
+$$('#nav a,a.btn[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=$(a.hash);wp.className='go';
+ setTimeout(()=>{t.scrollIntoView({behavior:'instant'});wp.className='out'},800);setTimeout(()=>wp.className='',1600)}));
+/* scroll velocity skew + video parallax */
+let lv=0,ls=scrollY;addEventListener('scroll',()=>{lv=scrollY-ls;ls=scrollY},{passive:true});
+(function sk(){lv*=.9;$('.mq').style.setProperty('--sk',Math.max(-12,Math.min(12,lv*-.35))+'deg');$('#bg').style.transform=`translateY(${scrollY*-.04}px) scale(1.12)`;requestAnimationFrame(sk)})();
+/* magnetic buttons + text scramble */
+$$('.btn').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.translate=`${(e.clientX-r.left-r.width/2)*.25}px ${(e.clientY-r.top-r.height/2)*.35}px`});b.addEventListener('mouseleave',()=>b.style.translate='')});
+const G='!<>-_\\/[]{}=+*^?#';
+function scr(el){const o=el.dataset.o||(el.dataset.o=el.textContent);let i=0;clearInterval(el._t);el._t=setInterval(()=>{el.textContent=[...o].map((c,k)=>k<i||c===' '?c:G[Math.random()*G.length|0]).join('');if(++i>o.length){clearInterval(el._t);el.textContent=o}},30)}
+$$('#nav a,.btn').forEach(el=>el.addEventListener('mouseenter',()=>scr(el)));
+</script>
+</body>
+</html>
